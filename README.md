@@ -1,73 +1,46 @@
-# React + TypeScript + Vite
+# BK-Studio | Portafolio para un estudio de arquitectura
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sitio web para mostrar proyectos y servicios de un estudio de arquitectura y visualización. La experiencia combina una galería de trabajos con información del estudio y contenido disponible en español e inglés.
 
-Currently, two official plugins are available:
+**[Ver sitio publicado](https://bk-studio-bay.vercel.app/)** · [Ver proyecto en mi portafolio](https://mi-portafolio-bay-eta.vercel.app/es#projects)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Vista previa
 
-## React Compiler
+![Vista de BK-Studio](https://raw.githubusercontent.com/JuanGMoreno/Mi-Portafolio-/main/public/images/projects/KB-Studio/foto1-kbstudio.webp)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+La captura se conserva en el [repositorio del portafolio](https://github.com/JuanGMoreno/Mi-Portafolio-).
 
-## Expanding the ESLint configuration
+## Qué permite explorar
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Página de inicio con presentación del estudio, servicios y proyectos.
+- Galería de trabajos con filtros y vista ampliada de imágenes.
+- Alternancia entre español e inglés mediante un contexto de React.
+- Sección de contacto con enlaces de email y WhatsApp. El formulario prepara un mensaje en Gmail; **no** envía datos a un backend propio.
+- Diseño adaptable a móvil y escritorio.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Mi contribución
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Colaboré sobre un proyecto existente: incorporé secciones, corregí errores y realicé el despliegue en Vercel. El repositorio no debe interpretarse como una implementación individual de todo el sitio desde cero.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Tecnologías y estructura
+
+React 19, TypeScript, Vite 7, Tailwind CSS 3, componentes basados en Radix UI/shadcn y Lucide React.
+
+```text
+src/App.tsx               Composición de la página
+src/sections/             Hero, proyectos, servicios, contacto y pie
+src/contexts/             Estado del idioma
+src/lib/translations.ts   Textos en ambos idiomas
+public/                  Imágenes y tipografías del sitio
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Ejecutar en local
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/JuanGMoreno/BK-Studio.git
+cd BK-Studio
+npm install
+npm run dev
 ```
+
+Vite mostrará la URL local al iniciar (habitualmente [http://localhost:5173](http://localhost:5173)). Para comprobar el proyecto usa `npm run lint` y `npm run build`.
